@@ -7,16 +7,15 @@ void main() {
 class NetflixApp extends StatelessWidget {
   const NetflixApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Netflix PADC',
+      title: 'Netflix',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const NetflixApp(),
+      home: const NetflixLoginPage(),
     );
   }
 }
@@ -35,7 +34,7 @@ class NetflixLoginPage extends StatelessWidget {
         ),
         actions: const [
           Padding(
-            padding: EdgeInsets.only(left: 16.0),
+            padding: EdgeInsets.only(right: 16.0),
             child: Text(
               "Help",
               style:
@@ -71,3 +70,22 @@ class NetflixLoginPage extends StatelessWidget {
     );
   }
 }
+
+//
+// import 'package:flutter/material.dart';
+//
+//
+// void main(){
+//   runApp(MyApp(),);
+// }
+//
+// class MyApp extends StatelessWidget{
+//
+//   @override const MyApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context){
+//     return const MaterialApp(
+//     );
+//   }
+// }
