@@ -45,7 +45,28 @@ class NetflixLoginPage extends StatelessWidget {
         ],
       ),
       body: Container(
-        color: Colors.black87,
+        color: const Color.fromRGBO(22, 22, 22, 1.0),
+        padding: const EdgeInsets.all(24.0),
+        child: Center(
+          child: RichText(
+            textAlign: TextAlign.center,
+            text: const TextSpan(children: [
+              TextSpan(
+                  style: TextStyle(
+                    color: Color.fromRGBO(140, 140, 140, 1.0),
+                  ),
+                  text:
+                      "Sign in is protected by Google reCAPTCHA to ensure that you are not a bot. "),
+              TextSpan(
+                text: "Learn more.",
+                style: TextStyle(
+                  color: Color.fromRGBO(140, 140, 140, 1.0),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ]),
+          ),
+        ),
       ),
     );
   }
