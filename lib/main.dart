@@ -34,6 +34,8 @@ class _NetflixLoginPageState extends State<NetflixLoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Image.asset("assets/images/nflogo.png",width: 100,),
+        centerTitle: true,
         backgroundColor: Colors.black,
         leading: const Icon(
           Icons.chevron_left_rounded,
