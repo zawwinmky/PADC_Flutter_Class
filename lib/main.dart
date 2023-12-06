@@ -74,27 +74,7 @@ class NetflixLoginPage extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4.0),
-                  color:const Color.fromRGBO(51, 51, 51, 1.0) ,
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0,vertical: 8.0),
-                  child: TextField(
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: "Password",
-                      hintStyle: TextStyle(
-                        color: Color.fromRGBO(148, 148, 148, 1.0),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              const PasswordInputView(),
               Padding(
                 padding: const EdgeInsets.only(top: 16.0),
                 child: RichText(
@@ -118,6 +98,49 @@ class NetflixLoginPage extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class PasswordInputView extends StatelessWidget {
+  const PasswordInputView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4.0),
+        color: const Color.fromRGBO(51, 51, 51, 1.0),
+      ),
+      child: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Password",
+                  hintStyle: TextStyle(
+                    color: Color.fromRGBO(148, 148, 148, 1.0),
+                  ),
+                ),
+              ),
+            ),
+            Text(
+              "SHOW",
+              style: TextStyle(
+                color: Color.fromRGBO(148, 148, 148, 1.0),
+              ),
+            ),
+          ],
         ),
       ),
     );
