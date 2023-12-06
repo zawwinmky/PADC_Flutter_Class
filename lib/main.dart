@@ -22,9 +22,14 @@ class NetflixApp extends StatelessWidget {
   }
 }
 
-class NetflixLoginPage extends StatelessWidget {
+class NetflixLoginPage extends StatefulWidget {
   const NetflixLoginPage({super.key});
 
+  @override
+  State<NetflixLoginPage> createState() => _NetflixLoginPageState();
+}
+
+class _NetflixLoginPageState extends State<NetflixLoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +80,33 @@ class NetflixLoginPage extends StatelessWidget {
                 height: 16,
               ),
               const PasswordInputView(),
+              const SizedBox(
+                height: 16,
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 48,
+                child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4.0),
+                      ),
+                      backgroundColor: const Color.fromRGBO(193, 62, 50, 1.0),
+                    ),
+                    child: const Text("Sign In",style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),)),
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+              TextButton(onPressed: (){}, child:const Text("Recover Password",style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),)),
               Padding(
                 padding: const EdgeInsets.only(top: 16.0),
                 child: RichText(
@@ -104,10 +136,17 @@ class NetflixLoginPage extends StatelessWidget {
   }
 }
 
-class PasswordInputView extends StatelessWidget {
+class PasswordInputView extends StatefulWidget {
   const PasswordInputView({
     super.key,
   });
+
+  @override
+  State<PasswordInputView> createState() => _PasswordInputViewState();
+}
+
+class _PasswordInputViewState extends State<PasswordInputView> {
+  bool isPasswordHidden = true;
 
   @override
   Widget build(BuildContext context) {
@@ -116,28 +155,36 @@ class PasswordInputView extends StatelessWidget {
         borderRadius: BorderRadius.circular(4.0),
         color: const Color.fromRGBO(51, 51, 51, 1.0),
       ),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
         child: Row(
           children: [
             Expanded(
               child: TextField(
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                 ),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: "Password",
                   hintStyle: TextStyle(
                     color: Color.fromRGBO(148, 148, 148, 1.0),
                   ),
                 ),
+                obscureText: isPasswordHidden,
               ),
             ),
-            Text(
-              "SHOW",
-              style: TextStyle(
-                color: Color.fromRGBO(148, 148, 148, 1.0),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  isPasswordHidden = !isPasswordHidden;
+                });
+              },
+              child: Text(
+                (isPasswordHidden) ? "SHOW" : "HIDE",
+                style: const TextStyle(
+                  color: Color.fromRGBO(148, 148, 148, 1.0),
+                ),
               ),
             ),
           ],
