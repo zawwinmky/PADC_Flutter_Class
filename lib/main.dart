@@ -12,7 +12,9 @@ class NetflixApp extends StatelessWidget {
     return MaterialApp(
       title: 'Netflix',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.deepPurple,
+            primary: const Color.fromRGBO(193, 52, 60, 1.0)),
         useMaterial3: true,
       ),
       home: const NetflixLoginPage(),
@@ -45,25 +47,76 @@ class NetflixLoginPage extends StatelessWidget {
       ),
       body: Container(
         color: const Color.fromRGBO(22, 22, 22, 1.0),
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(32.0),
         child: Center(
-          child: RichText(
-            textAlign: TextAlign.center,
-            text: const TextSpan(children: [
-              TextSpan(
-                  style: TextStyle(
-                    color: Color.fromRGBO(140, 140, 140, 1.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(4.0),
                   ),
-                  text:
-                      "Sign in is protected by Google reCAPTCHA to ensure that you are not a bot. "),
-              TextSpan(
-                text: "Learn more.",
-                style: TextStyle(
-                  color: Color.fromRGBO(140, 140, 140, 1.0),
-                  fontWeight: FontWeight.bold,
+                  hintText: "Email or Phone Number",
+                  hintStyle: const TextStyle(
+                    color: Color.fromRGBO(148, 148, 148, 1.0),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(4.0),
+                  ),
+                  fillColor: const Color.fromRGBO(51, 51, 51, 1.0),
+                  filled: true,
                 ),
               ),
-            ]),
+              const SizedBox(
+                height: 16,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4.0),
+                  color:const Color.fromRGBO(51, 51, 51, 1.0) ,
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12.0,vertical: 8.0),
+                  child: TextField(
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Password",
+                      hintStyle: TextStyle(
+                        color: Color.fromRGBO(148, 148, 148, 1.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: const TextSpan(children: [
+                    TextSpan(
+                        style: TextStyle(
+                          color: Color.fromRGBO(140, 140, 140, 1.0),
+                        ),
+                        text:
+                            "Sign in is protected by Google reCAPTCHA to ensure that you are not a bot. "),
+                    TextSpan(
+                      text: "Learn more.",
+                      style: TextStyle(
+                        color: Color.fromRGBO(140, 140, 140, 1.0),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ]),
+                ),
+              ),
+            ],
           ),
         ),
       ),
